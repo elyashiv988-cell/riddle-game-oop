@@ -1,7 +1,6 @@
 
 class QuestionResult:
-    def __init__(
-            self,
+    def __init__(self,
             riddle_id: int,
             riddle_type: str,
             category: str,
@@ -33,45 +32,50 @@ class GameResult:
         return round(sum(result.time_taken for result in self.question_results),2)
     
     def average_time_by_type(self):
-        totals = {}
-        counts = {}
+        
+        sums={}
+        counts={}
 
         for res in self.question_results:
-            
-            totals[res.riddle_type] = totals.get(res.riddle_type, 0.0) + res.time_taken
-            counts[res.riddle_type] = counts.get(res.riddle_type, 0) + 1
+            q_type=res.riddle_type
+            time_taken=res.time_taken
 
-        return {
-            r_type: round(totals[r_type] / counts[r_type], 2) for r_type in totals
-        }
+            if q_type not in sums:
+                sums[q_type] = 0.0
+                counts[q_type] = 0
 
-        
+            sums[q_type] += time_taken
+            counts[q_type] += 1
+
+        averge={}
+        for q_type in sums:
+            avg=sums[q_type]/counts[q_type]
+            averge[q_type]=round(avg,2)
+
+        return averge
             
     def average_time_by_category(self):
-        average_category={"Math":0,"English":0,"Geography":0,"Science":0,"History":0}
-        for result in self.question_results:
+        sums={}
+        counts={}
 
-            if result.category=="math":
-                average_category["Math"]+=result.time_taken
+        for res in self.question_results:
+            q_category=res.category
+            time_taken=res.time_taken
 
-            elif result.category=="english":
-                average_category["English"]+=result.time_taken
+            if q_category not in sums:
+                sums[q_category] = 0
+                counts[q_category] = 0
 
-            elif result.category=="geography":
-                average_category["Geography"]+=result.time_taken
+            sums[q_category] += time_taken
+            counts[q_category] += 1
 
-            elif result.category=="science":
-                average_category["Science"]+=result.time_taken
+        averge={}
+        for q_category in sums:
+            avg=sums[q_category]/counts[q_category]
+            averge[q_category]=round(avg,2)
 
-            elif result.category=="history":
-                average_category["History"]+=result.time_taken
-
-        for key in average_category:
-
-            average_category[key]=f"{average_category[key]:.2f}"
-                
-        return average_category
-
+        return averge
+            
     def to_csv_row(self):
         pass
 

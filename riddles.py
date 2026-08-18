@@ -68,16 +68,20 @@ class MultipleChoiceRiddle(Riddle):
         for ans in self.possible_answers:
             print(f"{line}) {ans}")
             line+=1
+
     def check_answer(self, user_ans):
         try:
-            if len(self.possible_answers)>=int(user_ans) and self.correct_answer==self.possible_answers[int(user_ans)-1]:
-                return True
+            if 0<int(user_ans)<=len(self.possible_answers):
+                if self.correct_answer==self.possible_answers[int(user_ans)-1]:
+                    return True
             else:
                 raise ValueError
         
         except ValueError:
             if str(user_ans.lower())==str(self.correct_answer.lower()):
                 return True
+            else:
+                return False
 
     
     def get_possible_answers(self):
