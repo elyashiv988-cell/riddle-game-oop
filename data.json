@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "question": "What is 5 + 7?",
+    "correct_answer": "12",
+    "type": "multiple_4",
+    "possible_answers": ["10", "11", "12", "13"],
+    "difficulty": "easy",
+    "category": "math"
+  },
+  {
+    "id": 2,
+    "question": "What is the capital of France?",
+    "correct_answer": "Paris",
+    "type": "open",
+    "possible_answers": [],
+    "difficulty": "easy",
+    "category": "geography"
+  },
+  {
+    "id": 3,
+    "question": "Is the Earth flat?",
+    "correct_answer": "No",
+    "type": "multiple_2",
+    "possible_answers": ["Yes", "No"],
+    "difficulty": "easy",
+    "category": "science"
+  },
+  {
+    "id": 4,
+    "question": "What is the past tense of 'go'?",
+    "correct_answer": "went",
+    "type": "open",
+    "possible_answers": [],
+    "difficulty": "medium",
+    "category": "english"
+  },
+  {
+    "id": 5,
+    "question": "How many continents are there?",
+    "correct_answer": "7",
+    "type": "multiple_4",
+    "possible_answers": ["5", "6", "7", "8"],
+    "difficulty": "easy",
+    "category": "geography"
+  },
+  {
+    "id": 6,
+    "question": "In which year did World War II end?",
+    "correct_answer": "1945",
+    "type": "multiple_4",
+    "possible_answers": ["1918", "1939", "1945", "1951"],
+    "difficulty": "medium",
+    "category": "history"
+  },
+  {
+    "id": 7,
+    "question": "What is 12 * 12?",
+    "correct_answer": "144",
+    "type": "open",
+    "possible_answers": [],
+    "difficulty": "medium",
+    "category": "math"
+  },
+  {
+    "id": 8,
+    "question": "Water boils at 100 degrees Celsius.",
+    "correct_answer": "True",
+    "type": "multiple_2",
+    "possible_answers": ["True", "False"],
+    "difficulty": "easy",
+    "category": "science"
+  },
+  {
+    "id": 9,
+    "question": "Which word is a synonym of 'happy'?",
+    "correct_answer": "glad",
+    "type": "multiple_4",
+    "possible_answers": ["sad", "glad", "angry", "tired"],
+    "difficulty": "easy",
+    "category": "english"
+  },
+  {
+    "id": 10,
+    "question": "Who was the first president of the United States?",
+    "correct_answer": "George Washington",
+    "type": "open",
+    "possible_answers": [],
+     "difficulty": "hard",
+    "category": "history"
+  }
+  
+]
