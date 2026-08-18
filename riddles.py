@@ -63,7 +63,22 @@ class MultipleChoiceRiddle(Riddle):
         return self.__possible_answers
 
     def display(self):
-        print(f"Qusetion: {self.question}\nAnswers: {self.possible_answers}")
+        print(f"Qusetion: {self.question}")
+        line=1
+        for ans in self.possible_answers:
+            print(f"{line}) {ans}")
+            line+=1
+    def check_answer(self, user_ans):
+        try:
+            if len(self.possible_answers)>=int(user_ans) and self.correct_answer==self.possible_answers[int(user_ans)-1]:
+                return True
+            else:
+                raise ValueError
+        
+        except ValueError:
+            if str(user_ans.lower())==str(self.correct_answer.lower()):
+                return True
+
     
     def get_possible_answers(self):
         return list(self.possible_answers)
