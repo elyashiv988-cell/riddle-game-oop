@@ -26,11 +26,13 @@ class RiddleGame:
         start_time=time.time()
         while True:
             answer=input("Enter your answer: ")
+            print(f"Your answer: {answer}")
             if riddle.check_answer(answer):
                 print("Correct answer!")
                 end_time=time.time()
-                taken_time=(end_time-start_time)/60
-                return QuestionResult(riddle.to_dict()["id"],riddle.get_type(),riddle.to_dict()["category"],time_taken=taken_time)
+                taken_time=end_time-start_time
+                print(f"Time: {round(taken_time,2)} seconds")
+                return QuestionResult(riddle.to_dict()["id"],riddle.get_type(),riddle.to_dict()["category"],time_taken=taken_time/60)
             else:
                 print("Incorrect! try agein. ")       
         
