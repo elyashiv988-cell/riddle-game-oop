@@ -1,4 +1,5 @@
 from riddles import *
+import json
 
 class RiddleRepository:
     def __init__(self,file_path:str):
@@ -40,5 +41,12 @@ class RiddleRepository:
 
 
     def save_riddles(self,riddles:list[Riddle]):
-        pass
+        raw_data=[]
+        for riddle in riddles:
+            raw_data.append(riddle.to_dict())
+        with open(self.file_path,"w") as file:
+            json.dump(raw_data,file,indent=4)
+            
+
+            
 

@@ -9,10 +9,7 @@ def get_path():
         return raw_data
 
 
-
-
 riddles=RiddleRepository(get_path())
-
 game=RiddleGame(Player(input("Enter your name: ")),riddles.load_riddles(),[])
 game.print_summary(game.start())
 
