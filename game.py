@@ -1,6 +1,7 @@
 from results import *
 from riddles import *
 import time
+from datetime import datetime
 class RiddleGame:
     def __init__(self,
                 player, 
@@ -12,12 +13,12 @@ class RiddleGame:
         self.results=results
 
     def start(self):
-        print(f"Wellcome {self.player.get_username()}")
+        print(f"Welcome {self.player.get_username()}")
         for riddle in self.riddles:
         
             self.results.append(self.ask_riddle(riddle))
        
-        return GameResult(self.player.get_username(), "date", 0, self.results)
+        return GameResult(self.player.get_username(), datetime.now(), 0, self.results)
 
     def ask_riddle(self,riddle: Riddle):
 
@@ -28,7 +29,7 @@ class RiddleGame:
             if riddle.check_answer(answer):
                 print("Correct answer!")
                 end_time=time.time()
-                taken_time=end_time-start_time
+                taken_time=(end_time-start_time)/60
                 return QuestionResult(riddle.to_dict()["id"],riddle.get_type(),riddle.to_dict()["category"],time_taken=taken_time)
             else:
                 print("Incorrect! try agein. ")       
@@ -36,7 +37,7 @@ class RiddleGame:
       
 
     def print_summary(self,result):
-        print(f"Player: {self.player.get_username()}\nTotal riddle: {result.get_total_riddles()}\nTotal time: {result.get_total_time()}")
+        print(f"Player: {self.player.get_username()}\nTotal riddles: {result.get_total_riddles()}\nTotal time: {result.get_total_time()}")
         print("Average time by type:")
         for key in result.average_time_by_type():
             print(f"{key}: {result.average_time_by_type()[key]}")
